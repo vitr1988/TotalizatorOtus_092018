@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Розыгрыш бесплатных мест</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.fileinput.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('input[type=file]').bootstrapFileInput();
+		});
+	</script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<form enctype="multipart/form-data" action="upload" method="post">
+			<label class="btn btn-default btn-file" for="file">
+			Файл со списком email участников розыгрыша:
+			<input type="file" name="file" id="file" onchange="this.form.submit()" data-filename-placement="inside">
+			</label>
+		</form>
+	</div>
+</body>
+</html>
