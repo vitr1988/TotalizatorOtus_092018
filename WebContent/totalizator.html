@@ -9,7 +9,7 @@
 	<script src="js/bootstrap.fileinput.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('input[type=file]').bootstrapFileInput();
+			$('#file').bootstrapFileInput();
 		});
 	</script>
 	<style>
@@ -18,10 +18,10 @@
 </head>
 <body>
 	<div class="flex-container">
-		<form enctype="multipart/form-data" action="upload" method="post">
+		<form enctype="multipart/form-data" action="result" method="post">
 			<label class="btn btn-default btn-file" for="file">
-			Файл со списком email участников розыгрыша:
-			<input type="file" name="file" id="file" onchange="this.form.submit()" data-filename-placement="inside">
+				Файл со списком email участников розыгрыша:
+				<input type="file" id="file" name="file" title="Загрузить" onchange="this.form.submit()" data-filename-placement="inside">
 			</label>
 		</form>
 	</div>

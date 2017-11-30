@@ -12,8 +12,9 @@
 <body>
 	<div class="col-sm-4 flex-container">
         <div class="col-sm-12 thumbnail text-center">
-            <img alt="Поздравляем" class="img-responsive" src="images/congrats.gif"/>
-
+        	<a href="obfuscatedEmails.txt" download="emails.txt" target="_blank">
+            	<img alt="Поздравляем" class="img-responsive" src="images/congrats.gif"/>
+            </a>
             <div class="caption">
                 <h4><%= request.getAttribute(WINNER_REQUEST_ATTRIBUTE) %></h4>
 	        </div>
