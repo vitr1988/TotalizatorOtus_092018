@@ -39,3 +39,13 @@ body {
 	color: #fff;
 	-webkit-font-smoothing: antialiased;
 }
+
+.blockLabel {
+	display: block;
+}
+
+.error {
+	text-align: left;
+	background-color: red;
+	display: none;
+}

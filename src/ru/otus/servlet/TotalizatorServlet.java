@@ -9,6 +9,7 @@ import static ru.otus.util.EmailRandomizer.saveObfuscatedEmailsToFile;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
