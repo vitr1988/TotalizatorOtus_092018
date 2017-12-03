@@ -1,5 +1,6 @@
 package ru.otus.servlet;
 
+import static ru.otus.TotalizatorConstant.TOTALIZATOR_URL;
 import static ru.otus.TotalizatorConstant.WINNER_REQUEST_ATTRIBUTE;
 import static ru.otus.util.EmailRandomizer.getWinnerCount;
 import static ru.otus.util.EmailRandomizer.getWinnersAsList;
@@ -27,7 +28,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 /**
  * Servlet implementation of Totalizator
  */
-@WebServlet("/result")
+@WebServlet(TOTALIZATOR_URL)
 public class TotalizatorServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 5885899233778066005L;
