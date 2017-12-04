@@ -13,7 +13,7 @@ import javax.servlet.ServletContext;
 public class EmailRandomizer {
 
 	private final static String WINNER_COUNT_INIT_PARAM = "winnerCount";
-	private final static String REGEXP_TO_OBFUSCATE_EMAIL = "\\\"(.*)@(.*)\\.(.*)\\\"";
+	private final static String REGEXP_TO_OBFUSCATE_EMAIL = "(.*)@(.*)\\.(.*)";
 
 	public static Stream<String> sweepstake(List<String> emails, int winnerCount) throws IOException {
 		return new EmailCollection(emails).randomEmails(winnerCount);
