@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="static ru.otus.TotalizatorConstant.*"%>
+<%@page import="static ru.otus.servlet.TotalizatorServlet.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <body>
 	<div class="col-sm-4 flex-container">
         <div class="col-sm-12 thumbnail text-center">
-        	<a href="obfuscatedEmails.txt" download="emails.txt" target="_blank">
+        	<a href="<%= DESTINATION_FILE %>" download="emails.txt" target="_blank">
             	<img alt="Поздравляем" class="img-responsive" src="images/congrats.gif"/>
             </a>
             <div class="caption">
