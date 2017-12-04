@@ -3,7 +3,6 @@ package ru.otus.util;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +13,7 @@ import javax.servlet.ServletContext;
 public class EmailRandomizer {
 
 	private final static String WINNER_COUNT_INIT_PARAM = "winnerCount";
+	private final static String REGEXP_TO_OBFUSCATE_EMAIL = "\\\"(.*)@(.*)\\.(.*)\\\"";
 
 	public static Stream<String> sweepstake(List<String> emails, int winnerCount) throws IOException {
 		return new EmailCollection(emails).randomEmails(winnerCount);
@@ -25,11 +25,11 @@ public class EmailRandomizer {
 	
 	public static List<String> saveObfuscatedEmailsToFile(String fileName, List<String> emails) throws IOException {
 		List<String> obfuscatedEmails = emails.stream()
-			    .map(email -> email.replaceAll("(.*)@(.*)\\.(.*)", "$1@****.$3"))
+				.map(email -> email.replaceAll(REGEXP_TO_OBFUSCATE_EMAIL, "$1@****.$3"))
 			    .sorted(Comparator.comparing(String::hashCode))
 			    .collect(Collectors.toList());
 		
-		Files.write(Paths.get(fileName), obfuscatedEmails, StandardOpenOption.CREATE_NEW);
+		Files.write(Paths.get(fileName), obfuscatedEmails);
 		
 		return obfuscatedEmails;
 	}
