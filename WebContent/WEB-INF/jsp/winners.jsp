@@ -13,7 +13,7 @@
 <body>
 	<div class="col-sm-4 flex-container">
         <div class="col-sm-12 thumbnail text-center">
-        	<a href="<%= DESTINATION_FILE %>" download="emails.txt" target="_blank">
+        	<a href="<%= DESTINATION_FILE %>" download="emails.csv" target="_blank">
             	<img alt="Поздравляем" class="img-responsive" src="images/congrats.gif"/>
             </a>
             <div class="caption">

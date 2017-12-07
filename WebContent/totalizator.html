@@ -15,7 +15,7 @@
 			fileInput.bootstrapFileInput();
 			fileInput.on('change', function(){
 				fileExtensionError.hide();
-				if (!fileInput.val().match(/csv$/)) {
+				if (!fileInput.val().match(/\.csv$/)) {
 					fileExtensionError.show();
 					return;
 				}
@@ -30,7 +30,7 @@
 <body>
 	<div class="flex-container">
 		<form enctype="multipart/form-data" action="result" method="post">
-			<div id="fileExtensionError" class="label label-default error">* выберите csv-файл</div>
+			<div id="fileExtensionError" class="label label-default error">*выберите csv-файл</div>
 			<label class="btn btn-default btn-file blockLabel" for="file">
 				Файл со списком email участников розыгрыша:
 				<input type="file" id="file" name="file" title="Загрузить" data-filename-placement="inside" data-fv-file-extension="csv" accept=".csv">

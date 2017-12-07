@@ -37,7 +37,7 @@ public class TotalizatorServlet extends HttpServlet {
 	/**
 	 * Output files with obfuscated emails
 	 */
-	public final static String DESTINATION_FILE = "obfuscatedEmails.txt";
+	public final static String DESTINATION_FILE = "obfuscatedEmails.csv";
 	
 	/**
 	 * Congratulation JSP
