@@ -14,7 +14,7 @@
 	<div class="col-sm-4 flex-container">
         <div class="col-sm-12 thumbnail text-center">
         	<a href="<%= DESTINATION_FILE %>" download="emails.csv" target="_blank">
-            	<img alt="Поздравляем" class="img-responsive" src="images/congrats.gif"/>
+            	<img alt="Поздравляем победителей" class="img-responsive" src="images/congrats.gif"/>
             </a>
             <div class="caption">
                 <h4><%= request.getAttribute(WINNER_REQUEST_ATTRIBUTE) %></h4>
