@@ -1,5 +1,6 @@
 package ru.otus.util;
 
+import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -8,18 +9,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.servlet.ServletContext;
-
 public class EmailRandomizer {
 
 	private final static String WINNER_COUNT_INIT_PARAM = "winnerCount";
 	private final static String REGEXP_TO_OBFUSCATE_EMAIL = "(.*)@(.*)\\.(.*)";
 
-	public static Stream<String> sweepstake(List<String> emails, int winnerCount) throws IOException {
+	public static Stream<String> sweepstake(List<String> emails, int winnerCount) {
 		return new EmailCollection(emails).randomEmails(winnerCount);
 	}
 	
-	public static String getWinnersAsList(List<String> emails, int winnerCount) throws IOException {
+	public static String getWinnersAsList(List<String> emails, int winnerCount) {
 		return sweepstake(emails, winnerCount).collect(Collectors.joining(", "));
 	}
 	

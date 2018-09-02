@@ -49,3 +49,7 @@ body {
 	background-color: red;
 	display: none;
 }
+#winnerListDownload {
+	text-decoration: underline;
+	cursor: pointer;
+}

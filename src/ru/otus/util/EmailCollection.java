@@ -37,7 +37,6 @@ class EmailCollection {
 		return random.ints(0, size())			// второй аргумент не включен
 				.distinct()						// только уникальные значения
 				.limit(limit)					// ограничиваем количество записей
-				.mapToObj(this::get)			// трансформируем индекс в реальный email
-				;
+				.mapToObj(this::get);			// трансформируем индекс в реальный email
 	}
 }
