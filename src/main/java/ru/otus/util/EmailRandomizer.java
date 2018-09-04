@@ -21,7 +21,7 @@ public class EmailRandomizer {
 		return new EmailCollection(new Random(stringToSeed(seedString)), emails).randomEmails(winnerCount);
 	}
 	
-	public static String getWinnersAsList(String seedString, List<String> emails, int winnerCount) {
+	public static String getWinnersCommaSeparated(String seedString, List<String> emails, int winnerCount) {
 		return sweepstake(seedString, emails, winnerCount).collect(Collectors.joining(COMMA_SEPARATOR + " "));
 	}
 	

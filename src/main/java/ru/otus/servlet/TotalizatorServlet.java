@@ -40,7 +40,7 @@ public class TotalizatorServlet extends HttpServlet {
 	/**
 	 * Congratulation JSP
 	 */
-	private static final String WINNER_JSP = "WEB-INF/jsp/winners.jsp";
+	private static final String WINNER_JSP = "/WEB-INF/jsp/winners.jsp";
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -62,9 +62,8 @@ public class TotalizatorServlet extends HttpServlet {
 
 		ServletContext context = getServletContext();
 		List<String> obfuscatedEmailsToFile = saveObfuscatedEmailsToFile(context.getRealPath(SLASH) + DESTINATION_FILE, allLines);
-		request.setAttribute(WINNER_REQUEST_ATTRIBUTE, getWinnersAsList(
-				getSeed(context),//TODO: replace smth from chat
-				obfuscatedEmailsToFile, getWinnerCount(context)));
+		request.setAttribute(WINNER_REQUEST_ATTRIBUTE, getWinnersCommaSeparated(
+				getSeed(context), obfuscatedEmailsToFile, getWinnerCount(context)));
 
 		final PushBuilder pushBuilder = request.newPushBuilder(); // push builder works only with https
 		if (pushBuilder != null) {

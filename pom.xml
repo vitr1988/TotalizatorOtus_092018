@@ -4,7 +4,7 @@
   <artifactId>TotalizatorOtus_092018</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>TotalizatorOtus2017</name>
+  <name>TotalizatorOtus2018</name>
 
   <properties>
     <servlet.version>4.0.0</servlet.version>

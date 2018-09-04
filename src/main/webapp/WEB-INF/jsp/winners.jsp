@@ -15,7 +15,7 @@
         $(document).ready(function(){
 			$('#winnerListDownload').on('click', function(){
 			    var filename = 'winnerList.csv';
-                var csvContent = '<%= winnerList.replaceAll("\\s+", "") %>'.replace(/<%= COMMA_SEPARATOR %>%>/g, '\r\n'); //replace all spaces
+                var csvContent = '<%= winnerList.replaceAll("\\s+", "") %>'.replace(/<%= COMMA_SEPARATOR %>/g, '\r\n'); //replace all spaces
                 var blob = new Blob([csvContent], {type: 'text/csv'});
                 if(window.navigator.msSaveOrOpenBlob) {
                     window.navigator.msSaveBlob(blob, filename);
