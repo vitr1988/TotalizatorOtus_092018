@@ -9,6 +9,7 @@
   <properties>
     <servlet.version>4.0.0</servlet.version>
     <jsp.version>2.3.1</jsp.version>
+    <tomcat.version>9.0.11</tomcat.version>
 
     <mavencompiler.version>3.5.1</mavencompiler.version>
     <mavenbuilder.version>3.0.0</mavenbuilder.version>
@@ -29,6 +30,16 @@
       <artifactId>javax.servlet.jsp-api</artifactId>
       <version>${jsp.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <version>${tomcat.version}</version>
     </dependency>
   </dependencies>
   <build>
@@ -52,6 +63,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>${mavenbuilder.version}</version>
         <configuration>
+          <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
           <warSourceDirectory>src/main/webapp</warSourceDirectory>
         </configuration>
       </plugin>

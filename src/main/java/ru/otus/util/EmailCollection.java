@@ -1,24 +1,18 @@
 package ru.otus.util;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Stream;
 
 class EmailCollection {
 	
 	private Random random;
 	private List<String> emails;
-	
-	public EmailCollection(List<String> emails){
-		this(new Random(System.currentTimeMillis()), emails);
-	}
-	
-	public EmailCollection(Random random, List<String> emails){
+
+	public EmailCollection(Random random, Collection<String> emails){
 		Objects.requireNonNull(random);
 		Objects.requireNonNull(emails);
 		this.random = random;
-		this.emails = emails;
+		this.emails = new ArrayList<>(emails);
 	}
 	
 	public String get(int index) {
