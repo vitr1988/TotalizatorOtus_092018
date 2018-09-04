@@ -63,7 +63,7 @@ public class TotalizatorServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		List<String> obfuscatedEmailsToFile = saveObfuscatedEmailsToFile(context.getRealPath(SLASH) + DESTINATION_FILE, allLines);
 		request.setAttribute(WINNER_REQUEST_ATTRIBUTE, getWinnersAsList(
-				"Здесь должна быть Ваша реклама",//TODO: replace smth from chat
+				getSeed(context),//TODO: replace smth from chat
 				obfuscatedEmailsToFile, getWinnerCount(context)));
 
 		final PushBuilder pushBuilder = request.newPushBuilder(); // push builder works only with https

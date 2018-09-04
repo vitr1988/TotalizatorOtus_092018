@@ -13,14 +13,16 @@ import java.util.stream.Stream;
 public class EmailRandomizer {
 
 	private final static String WINNER_COUNT_INIT_PARAM = "winnerCount";
+	private final static String SEED_INIT_PARAM = "seed";
 	private final static String REGEXP_TO_OBFUSCATE_EMAIL = "(.*)@(.*)\\.(.*)";
+    public final static String COMMA_SEPARATOR = ",";
 
 	public static Stream<String> sweepstake(String seedString, List<String> emails, int winnerCount) {
 		return new EmailCollection(new Random(stringToSeed(seedString)), emails).randomEmails(winnerCount);
 	}
 	
 	public static String getWinnersAsList(String seedString, List<String> emails, int winnerCount) {
-		return sweepstake(seedString, emails, winnerCount).collect(Collectors.joining(", "));
+		return sweepstake(seedString, emails, winnerCount).collect(Collectors.joining(COMMA_SEPARATOR + " "));
 	}
 	
 	public static List<String> saveObfuscatedEmailsToFile(String fileName, List<String> emails) throws IOException {
@@ -36,6 +38,10 @@ public class EmailRandomizer {
 	
 	public static int getWinnerCount(ServletContext context) {
 		return Integer.decode(context.getInitParameter(WINNER_COUNT_INIT_PARAM));
+	}
+
+	public static String getSeed(ServletContext context) {
+		return context.getInitParameter(SEED_INIT_PARAM);
 	}
 
 	private static long stringToSeed(String s) {

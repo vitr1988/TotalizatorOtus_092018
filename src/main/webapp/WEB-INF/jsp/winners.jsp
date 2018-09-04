@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="static ru.otus.TotalizatorConstant.*"%>
 <%@page import="static ru.otus.servlet.TotalizatorServlet.*"%>
+<%@page import="static ru.otus.util.EmailRandomizer.COMMA_SEPARATOR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
         $(document).ready(function(){
 			$('#winnerListDownload').on('click', function(){
 			    var filename = 'winnerList.csv';
-                var csvContent = '<%= winnerList.replaceAll("\\s+", "") %>'.replace(/,/g, '\r\n'); //replace all spaces
+                var csvContent = '<%= winnerList.replaceAll("\\s+", "") %>'.replace(/<%= COMMA_SEPARATOR %>%>/g, '\r\n'); //replace all spaces
                 var blob = new Blob([csvContent], {type: 'text/csv'});
                 if(window.navigator.msSaveOrOpenBlob) {
                     window.navigator.msSaveBlob(blob, filename);
