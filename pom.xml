@@ -10,11 +10,14 @@
     <servlet.version>4.0.0</servlet.version>
     <jsp.version>2.3.1</jsp.version>
     <tomcat.version>9.0.11</tomcat.version>
+    <lombok.version>1.16.20</lombok.version>
 
     <mavencompiler.version>3.5.1</mavencompiler.version>
     <mavenbuilder.version>3.0.0</mavenbuilder.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+
+    <launcher.fqn>ru.otus.launcher.Main</launcher.fqn>
   </properties>
 
   <dependencies>
@@ -40,6 +43,12 @@
         <groupId>org.apache.tomcat.embed</groupId>
         <artifactId>tomcat-embed-jasper</artifactId>
         <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+      <version>${lombok.version}</version>
     </dependency>
   </dependencies>
   <build>
@@ -80,9 +89,7 @@
             <configuration>
               <archive>
                 <manifest>
-                  <mainClass>
-                    ru.otus.launcher.Main
-                  </mainClass>
+                  <mainClass>${launcher.fqn}</mainClass>
                 </manifest>
               </archive>
               <descriptorRefs>
