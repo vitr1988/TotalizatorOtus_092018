@@ -17,6 +17,6 @@
   </context-param>
   
   <welcome-file-list>
-    <welcome-file>/WEB-INF/jsp/totalizator.jsp</welcome-file>
+    <welcome-file>totalizator.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
