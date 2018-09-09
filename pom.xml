@@ -11,6 +11,8 @@
     <jsp.version>2.3.1</jsp.version>
     <tomcat.version>9.0.11</tomcat.version>
     <lombok.version>1.16.20</lombok.version>
+    <log4j.version>2.9.1</log4j.version>
+    <slf4j.version>1.7.21</slf4j.version>
 
     <mavencompiler.version>3.5.1</mavencompiler.version>
     <mavenbuilder.version>3.0.0</mavenbuilder.version>
@@ -35,20 +37,39 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-core</artifactId>
-        <version>${tomcat.version}</version>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-core</artifactId>
+      <version>${tomcat.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-jasper</artifactId>
-        <version>${tomcat.version}</version>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <version>${tomcat.version}</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <optional>true</optional>
       <version>${lombok.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
     </dependency>
   </dependencies>
   <build>
@@ -72,11 +93,13 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>${mavenbuilder.version}</version>
         <configuration>
-          <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
+          <packagingExcludes>
+            WEB-INF/lib/tomcat*.jar,
+            WEB-INF/lib/ecj*.jar
+          </packagingExcludes>
           <warSourceDirectory>src/main/webapp</warSourceDirectory>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>

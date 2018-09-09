@@ -1,5 +1,8 @@
 package ru.otus.servlet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -13,9 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static ru.otus.TotalizatorConstant.*;
@@ -27,6 +28,8 @@ import static ru.otus.util.EmailRandomizer.*;
 @WebServlet(SLASH + TOTALIZATOR_URL)
 @MultipartConfig
 public class TotalizatorServlet extends HttpServlet {
+
+	private static final Logger logger = LoggerFactory.getLogger(TotalizatorServlet.class.getName());
 	
 	private static final long serialVersionUID = 5885899233778066005L;
 	
@@ -64,8 +67,9 @@ public class TotalizatorServlet extends HttpServlet {
 				getSeed(context), obfuscatedEmailsToFile, getWinnerCount(context)));
 
 		PushBuilder pushBuilder = request.newPushBuilder(); // push builder works only with https
+        logger.info("Push begin");
 		if (pushBuilder != null) {
-			pushGif(pushBuilder, "images/congrats.gif");
+			pushGif(request, pushBuilder, "images/congrats.gif");
 		}
 		request.getRequestDispatcher(WINNER_JSP).forward(request, response);
 	}
@@ -75,10 +79,11 @@ public class TotalizatorServlet extends HttpServlet {
 		response.sendRedirect(request.getContextPath());
 	}
 
-	private void pushGif(PushBuilder pushBuilder, String path) {
-		pushBuilder
+	private void pushGif(HttpServletRequest request, PushBuilder pushBuilder, String path) {
+        pushBuilder
 				.path(path)
-				.addHeader("content-type", "image/gif")
+					.addHeader("content-type", "image/gif")
 				.push();
+		logger.info("Push end");
 	}
 }
