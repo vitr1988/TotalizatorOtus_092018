@@ -13,7 +13,7 @@
 
   <context-param>
     <param-name>seed</param-name>
-    <param-value><![CDATA[Здесь должна быть Ваша реклама]]></param-value>
+    <param-value><![CDATA[Там видео интересное по этому вопросу кто-то привёл, хотя и затянутое слегка -- про разницу между ee и Spring]]></param-value>
   </context-param>
   
   <welcome-file-list>

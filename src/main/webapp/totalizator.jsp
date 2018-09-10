@@ -28,7 +28,7 @@
 <body>
 	<div class="flex-container">
 		<form enctype="multipart/form-data" action="<%= TOTALIZATOR_URL %>" method="post">
-			<div id="fileExtensionError" class="label label-default error">*выберите <%= AVAILABLE_FOR_UPLOADING_FILE_EXTENSION %>-файл</div>
+			<div id="fileExtensionError" class="label label-default error">* выберите <%= AVAILABLE_FOR_UPLOADING_FILE_EXTENSION %> файл</div>
 			<label class="btn btn-default btn-file blockLabel" for="<%= FILE_INPUT_NAME %>">
 				Загружаем файл со списком email участников розыгрыша:
 				<input type="file" id="<%= FILE_INPUT_NAME %>" name="<%= FILE_INPUT_NAME %>" title="Загрузить" data-filename-placement="inside" data-fv-file-extension="<%= AVAILABLE_FOR_UPLOADING_FILE_EXTENSION %>" accept=".<%= AVAILABLE_FOR_UPLOADING_FILE_EXTENSION %>" multiple="true">
