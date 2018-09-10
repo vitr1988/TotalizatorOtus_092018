@@ -28,9 +28,9 @@ public class EmailRandomizer {
 	
 	public static List<String> saveObfuscatedEmailsToFile(String fileName, Collection<String> emails) throws IOException {
 		List<String> obfuscatedEmails = emails.stream()
+				.distinct()
 				.map(email -> email.replaceAll(REGEXP_TO_OBFUSCATE_EMAIL, "$1@****.$3"))
 			    .sorted(Comparator.comparing(String::hashCode))
-				.distinct()
 			    .collect(Collectors.toList());
 		
 		Files.write(Paths.get(fileName), obfuscatedEmails);

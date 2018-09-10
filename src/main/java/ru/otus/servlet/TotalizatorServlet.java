@@ -67,8 +67,7 @@ public class TotalizatorServlet extends HttpServlet {
 				getSeed(context), obfuscatedEmailsToFile, getWinnerCount(context)));
 
 		PushBuilder pushBuilder = request.newPushBuilder(); // push builder works only with https
-        logger.info("Push begin");
-		if (pushBuilder != null) {
+        if (pushBuilder != null) {
 			pushGif(request, pushBuilder, "images/congrats.gif");
 		}
 		request.getRequestDispatcher(WINNER_JSP).forward(request, response);
@@ -84,6 +83,5 @@ public class TotalizatorServlet extends HttpServlet {
 				.path(path)
 					.addHeader("content-type", "image/gif")
 				.push();
-		logger.info("Push end");
 	}
 }
